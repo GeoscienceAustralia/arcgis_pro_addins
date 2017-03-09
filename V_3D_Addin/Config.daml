@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!--
+
+   Copyright 2017 Esri
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+-->
+<ArcGIS defaultAssembly="V_3D_Addin.dll" defaultNamespace="V_3D_Addin" xmlns="http://schemas.esri.com/DADF/Registry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.esri.com/DADF/Registry file:///C:/Program%20Files/ArcGIS/Pro/bin/ArcGIS.Desktop.Framework.xsd">
+  <AddInInfo id="{15d20060-9859-4a20-b860-52f648da17fc}" version="1.0" desktopVersion="1.3.5861">
+    <Name>V_3D_Addin</Name>
+    <Description>V_3D_Addin description</Description>
+    <Image>Images\AddinDesktop32.png</Image>
+    <Author>Wolfgang</Author>
+    <Company>Acme</Company>
+    <Date>5/2/2016 1:13:15 PM, 2016</Date>
+    <Subject>Framework</Subject>
+    <!-- Note subject can be one or more of these topics:
+                    Content, Framework, Editing, Geodatabase, Geometry, Geoprocessing, Layouts, Map Authoring, Map Exploration -->
+  </AddInInfo>
+  <modules>
+    <insertModule id="V_3D_Addin_Module" className="Module1" autoLoad="false" caption="Module1">
+      <!-- uncomment to have the control hosted on a separate tab-->
+      <tabs>
+        <!--<tab id="V_3D_Addin_Tab1" caption="New Tab">
+          <group refID="V_3D_Addin_Group1"/>
+        </tab>-->
+      </tabs>
+      <groups>
+        <!-- comment this out if you have no controls on the Addin tab to avoid
+              an empty group-->
+        <group id="V_3D_Addin_Group1" caption="3D Animation" appearsOnAddInTab="true" keytip="z1">
+          <!-- host controls within groups -->
+          <tool refID="V_3D_Addin_V_3D" size="large" />
+          <button refID="V_3D_Addin_Setup" size="middle" />
+          <button refID="V_3D_Addin_Start" size="middle" />
+          <button refID="V_3D_Addin_Stop" size="middle" />
+        </group>
+      </groups>
+      <controls>
+        <!-- add your controls here -->
+        <tool id="V_3D_Addin_V_3D" caption="V_3D" className="V_3D" loadOnClick="true" smallImage="Images\GenericButtonRed16.png" largeImage="Images\GenericButtonRed32.png" condition="esri_mapping_mapPane" keytip="z2">
+          <tooltip heading="V_3D">Left Click on the Map to stop, or right click on the map to start.<disabledText /></tooltip>
+        </tool>
+        <button id="V_3D_Addin_Setup" caption="Setup " className="Setup" extendedCaption="Setup for 3D Animation" loadOnClick="true" smallImage="Images\GenericButtonBlue16.png" largeImage="Images\GenericButtonBlue32.png" condition="tool_activated">
+          <tooltip heading="3D Animation">
+            Setup user settings.<disabledText />
+          </tooltip>
+        </button>
+        <button id="V_3D_Addin_Start" caption="Start " className="Start" extendedCaption="Start animation" loadOnClick="true" smallImage="Images\GenericButtonBlue16.png" largeImage="Images\GenericButtonBlue32.png" condition="tool_activated">
+          <tooltip heading="3D Animation">
+            Start animation.<disabledText />
+          </tooltip>
+        </button>
+        <button id="V_3D_Addin_Stop" caption="Stop " className="Stop" extendedCaption="Stop animation" loadOnClick="true" smallImage="Images\GenericButtonBlue16.png" largeImage="Images\GenericButtonBlue32.png" condition="tool_activated">
+          <tooltip heading="3D Animation">
+            Stop animation.<disabledText />
+          </tooltip>
+        </button>
+      </controls>
+    </insertModule>
+  </modules>
+  <conditions>
+    <insertCondition id="tool_activated" caption="Tool has been activated.">
+      <and>
+        <state id="ready_to_run"/>
+        <state id="esri_mapping_mapPane"/>
+      </and>
+    </insertCondition>
+  </conditions>
+</ArcGIS>

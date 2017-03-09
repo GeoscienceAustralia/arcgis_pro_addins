@@ -1,0 +1,25 @@
+﻿<Window x:Class="V_3D_Addin.EditSettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:V_3D_Addin"
+        mc:Ignorable="d"
+        Title="Edit Settings" Height="300" Width="300" SizeToContent="WidthAndHeight">
+    <Grid Margin="0,0,0,0">
+        <Button x:Name="btnOK" Content="OK" HorizontalAlignment="Right" Margin="243,243,10,10" VerticalAlignment="Bottom" Height="Auto" Width="Auto" Click="btnOK_Click"/>
+        <DataGrid x:Name="UserSettings" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Height="196" Width="272" AutoGenerateColumns="False" FontWeight="Bold">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FFC7C7EE" />
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Key}" Header=" Setting" Foreground="#FF2626C7" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Value}"  Header=" Value"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnSelectShapeFiles" Content="Select Shapefiles" HorizontalAlignment="Left" Height="Auto" Margin="10,10,0,0" VerticalAlignment="Top" Width="Auto" Click="btnSelectShapeFiles_Click"/>
+
+    </Grid>
+</Window>

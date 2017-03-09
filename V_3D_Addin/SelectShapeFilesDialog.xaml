@@ -1,0 +1,28 @@
+﻿<Window x:Class="V_3D_Addin.SelectShapeFilesDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:V_3D_Addin"
+        mc:Ignorable="d"
+        Title="SelectShapeFiles" Height="435" Width="300" SizeToContent="WidthAndHeight">
+    <Grid Margin="0,0,0,0">
+        <Button x:Name="btnSelectShapeFiles" Content="Select shape files" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="Auto" Height="Auto" Click="btnSelectShapeFiles_Click"/>
+        <ListView x:Name="lvShapeFiles" HorizontalAlignment="Left" Height="350" Margin="10,42,10,10" VerticalAlignment="Top" Width="Auto">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="selected" Width="50">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding selected}" Foreground="Blue" Cursor="Hand" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="filename" Width="Auto"  DisplayMemberBinding="{Binding filename}" />
+                    <GridViewColumn Header="full_path" Width="Auto" DisplayMemberBinding="{Binding full_path}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="btnOK" Content="OK" HorizontalAlignment="Right" Margin="207,10,10,0" VerticalAlignment="Top" Width="Auto" Height="Auto" Click="btnOK_Click"/>
+    </Grid>
+</Window>
