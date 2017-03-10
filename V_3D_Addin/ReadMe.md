@@ -1,7 +1,7 @@
 ##V_3D_Addin
 
 <!-- TODO: Write a brief abstract explaining this sample -->
-ProGuide example for simple MapView interaction is demonstrated in this sample with a tool that allows to zoom in and out of the current MapView.  The left mouse click will zoom in and the right mouse click will zoom out.  Unlike the other Map Tool samples this example does not use the sketch capabilities of the MapTool base class instead the sample overrides mouse and keyboard events.    
+Learn how to develope addins for ArcGIS Pro and 3D animation with ArcGIS Pro.    
   
 
 
